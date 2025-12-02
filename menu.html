@@ -10,11 +10,87 @@
     </head>
     <body>
         <div class="title">
-            <a href="index_en.html" class="back-home">
-                <span>← Back to Home</span>
-            </a>
-            <img src="macarooon-logo-small.png" alt="Macarooon Logo" class="small-logo">
+            <a href="index_en.html" class="back-home"><span>← Back to Home</span></a>
+            
         </div>
+
+        <!-- HERO -->
+        <header class="menu-hero">
+            <div class="hero-inner">
+                <h1 class="menu-title">Our Menu</h1>
+                <p class="menu-sub">Handcrafted macarons, cookies and cakes — fresh every day.</p>
+            </div>
+        </header>
+
+        <!-- FILTER / CATEGORY BUTTONS -->
+        <nav class="menu-filter" aria-label="menu categories">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="macarons">Macarons</button>
+            <button class="filter-btn" data-filter="cookies">Cookies</button>
+            <button class="filter-btn" data-filter="cakes">Cakes</button>
+            <input class="menu-search" type="search" placeholder="Search menu..." aria-label="search menu">
+        </nav>
+
+        <!-- CATEGORY HIGHLIGHT BOXES -->
+        <section class="menu-categories">
+            <div class="category-card">
+                <img src="macarons-thumb.jpg" alt="Macarons">
+                <h3>Macarons</h3>
+                <p>Delicate, colorful, and filled with seasonal flavors.</p>
+            </div>
+            <div class="category-card">
+                <img src="cookies-thumb.jpg" alt="Cookies">
+                <h3>Cookies</h3>
+                <p>Crunchy edges, soft centers — every bite is perfect.</p>
+            </div>
+            <div class="category-card">
+                <img src="cakes-thumb.jpg" alt="Cakes">
+                <h3>Cakes</h3>
+                <p>From single slices to show-stopping celebration cakes.</p>
+            </div>
+        </section>
+
+        <!-- MENU GRID -->
+        <main class="menu-grid" id="menuGrid" aria-live="polite">
+            <!-- example menu cards (repeat / populate as needed) -->
+            <article class="menu-card" data-category="cookies">
+                <img src="Cookies.png" alt="Classic Chocolate Chip">
+                <div class="card-body">
+                    <h4>Classic Chocolate Chip</h4>
+                    <p class="desc">Warm, gooey, loaded with chunks.</p>
+                    <div class="card-footer">
+                        <span class="price">₺45</span>
+                        <button class="details-btn" data-item="classic-chip">Details</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="menu-card" data-category="cookies">
+                <img src="Brownie_Batter_Cookie.png" alt="Brownie Batter">
+                <div class="card-body">
+                    <h4>Brownie Batter Cookie</h4>
+                    <p class="desc">Deep chocolate flavor, fudgy center.</p>
+                    <div class="card-footer">
+                        <span class="price">₺55</span>
+                        <button class="details-btn" data-item="brownie">Details</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="menu-card" data-category="cookies">
+                <img src="Matcha_Cookie.png" alt="Matcha Cookie">
+                <div class="card-body">
+                    <h4>Matcha Cookie</h4>
+                    <p class="desc">Lightly bitter matcha with white chocolate.</p>
+                    <div class="card-footer">
+                        <span class="price">₺50</span>
+                        <button class="details-btn" data-item="matcha">Details</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- add more cards -->
+        </main>
 
         <!-- Footer -->
         <footer class="footer">

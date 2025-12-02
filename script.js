@@ -68,3 +68,33 @@ document.getElementById('cake').addEventListener('click', function() {
 document.getElementById('closeCakeBasket').addEventListener('click', function() {
     document.querySelector('.cake-basket').classList.remove('active');
 });
+
+// Cookie slider / carousel
+(function() {
+  const basket = document.querySelector('.cookie-basket');
+  if (!basket) return;
+
+  const slides = Array.from(basket.querySelectorAll('.cookie-slider'));
+  if (!slides.length) return;
+
+  let current = slides.findIndex(s => s.classList.contains('active'));
+  if (current === -1) current = 0;
+
+  function show(i) {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+  }
+
+  const prev = basket.querySelector('.cookie-prev');
+  const next = basket.querySelector('.cookie-next');
+
+  if (prev) prev.addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+  if (next) next.addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+
+  // reset to first slide whenever the basket opens
+  const opener = document.getElementById('cookie');
+  if (opener) opener.addEventListener('click', () => show(0));
+
+  // init
+  show(current);
+})();
