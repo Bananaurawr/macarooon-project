@@ -292,6 +292,10 @@ button {
   z-index: 10;
 }
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .dropdown-content a {
   display: block;
   padding: 10px 14px;
@@ -319,11 +323,6 @@ button {
   border-top-right-radius: var(--radius-medium); 
   border-top-left-radius: var(--radius-medium);
 }
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 
 /* Hero image under navbar on index */
 

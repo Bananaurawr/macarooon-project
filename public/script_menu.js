@@ -109,36 +109,37 @@ if (goToCart) {
 }
 
 // Updte badge nya
-(function() {
-  const CART_KEYS = ['macaroons_cart_v1', 'cart', 'cart_items'];
+const CART_KEYS = ['macaroons_cart_v1', 'cart', 'cart_items'];
 
-  function readCartArray() {
-    for (const k of CART_KEYS) {
-      const raw = localStorage.getItem(k);
-      if (!raw) continue;
-      try {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) return parsed;
-        if (parsed && Array.isArray(parsed.items)) return parsed.items;
-      } catch (e) { /* ignore parse errors */ }
-    }
-    return [];
+function readCartArray() {
+  for (const k of CART_KEYS) {
+    const raw = localStorage.getItem(k);
+    if (!raw) continue;
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed;
+      if (parsed && Array.isArray(parsed.items)) return parsed.items;
+    } catch (e) {}
   }
+  return [];
+}
 
-  function updateCartBadge() {
-    const items = readCartArray();
-    const count = items.reduce((sum, it) => sum + (it.qty || it.quantity || 1), 0);
-    const el = document.getElementById('cartCount');
-    if (el) el.textContent = count;
+function updateCartBadge() {
+  const items = readCartArray();
+  const count = items.reduce(
+    (sum, it) => sum + (it.qty || it.quantity || 1),
+    0
+  );
+  const el = document.getElementById('cartCount');
+  if (el) el.textContent = count;
+}
+
+// Update after add-to-cart click
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.add-to-cart')) {
+    setTimeout(updateCartBadge, 120);
   }
+});
 
-  // Update after any "add-to-cart" click (other handlers may run first)
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.add-to-cart')) {
-      setTimeout(updateCartBadge, 120);
-    }
-  });
-
-  // Init on load
-  document.addEventListener('DOMContentLoaded', updateCartBadge);
-})();
+// Init on page load
+document.addEventListener('DOMContentLoaded', updateCartBadge);
