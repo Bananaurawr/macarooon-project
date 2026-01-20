@@ -44,24 +44,3 @@ document.addEventListener('DOMContentLoaded', function() {
         miniNav.classList.toggle('hidden');
     });
 });
-
-// Script for SLIDESHOW
-// Menu box slideshow handlers
-document.getElementById('cookie')?.addEventListener('click', () => {
-  document.getElementById('cookie-slideshow').classList.add('active');
-});
-
-document.getElementById('macaron')?.addEventListener('click', () => {
-  document.getElementById('macaron-slideshow').classList.add('active');
-});
-
-document.getElementById('cake')?.addEventListener('click', () => {
-  document.getElementById('cake-slideshow').classList.add('active');
-});
-
-// Close slideshow buttons
-document.querySelectorAll('.close-slideshow').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('.slideshow-container').classList.remove('active');
-  });
-});
